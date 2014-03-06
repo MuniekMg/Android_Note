@@ -3,38 +3,38 @@ Android_Note
 
 Tworzenie notatek na czyimś telefonie (Android)
 
-1.GUI
--okienko adresowe
--przycisk wyslij
--okienko tekstu
--widget notatki
+-GUI
+1.okienko adresowe
+2.przycisk wyslij
+3.okienko tekstu
+4.widget notatki
 
-2.ZAPIS DO PLIKU
--zapisywanie tresci notatnika do pliku
--
--
--
+-ZAPIS DO PLIKU
+1.zapisywanie tresci notatnika do pliku
+2.
+3.
+4.
 
-3.WĄTKI
--monitorowanie stanu.
--
--
--
+-WĄTKI
+1.monitorowanie stanu.
+2.
+3.
+4.
 
-4.BAZA DANYCH
--baza zaufanych (znanych) kontaktów
--
--
--
+-BAZA DANYCH
+1.baza zaufanych (znanych) kontaktów
+2.
+3.
+4.
 
-5.SIEC
--Wysyłanie notatki
--komunikacja z bazą w celu zapisu kontaktu
--komunikacja z baza w celu sprawdzenia kontaktu
--
+-SIEC
+1.Wysyłanie notatki
+2.komunikacja z bazą w celu zapisu kontaktu
+3.komunikacja z baza w celu sprawdzenia kontaktu
+4.
 
-6.INNE
--PAreowanie za pomocą NFC
--
--
--
+-INNE
+1.PAreowanie za pomocą NFC
+2.
+3.
+4.
