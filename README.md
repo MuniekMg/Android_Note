@@ -17,8 +17,8 @@ Tworzenie notatek na czyimś telefonie (Android)
 
 -WĄTKI
   1.monitorowanie stanu.
-  2.
-  3.
+  2.Połączenie sieciowe
+  3.progres bar
   4.
 
 -BAZA DANYCH
@@ -34,7 +34,7 @@ Tworzenie notatek na czyimś telefonie (Android)
   4.
 
 -INNE
-  1.PAreowanie za pomocą NFC
+  1.Pareowanie za pomocą NFC
   2.
   3.
   4.
