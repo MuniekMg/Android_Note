@@ -7,7 +7,7 @@ Tworzenie notatek na czyimś telefonie (Android)
   1.okienko adresowe
   2.przycisk wyslij
   3.okienko tekstu
-  4.widget notatki
+  4.widget notatki (10.04.2014)
   5.komunikacja UI między wątkami (03.04.2014)
 
 -ZAPIS DO PLIKU
