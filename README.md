@@ -4,9 +4,9 @@ Android_Note
 Tworzenie notatek na czyimś telefonie (Android)
 
 -GUI
-  1.okienko adresowe
-  2.przycisk wyslij
-  3.okienko tekstu
+  1.okienko adresowe (08.05.2014)
+  2.przycisk wyslij (08.05.2014)
+  3.okienko tekstu (08.05.2014)
   4.widget notatki (10.04.2014)
   5.komunikacja UI między wątkami (03.04.2014)
 
@@ -24,9 +24,9 @@ Tworzenie notatek na czyimś telefonie (Android)
   5.komunikacja z bazą danych (03.04.2014)
 
 -BAZA DANYCH
-  1.baza danych 03.04.2014)
+  1.baza danych (08.05.2014)
   2.komunikacja z bazą danych (03.04.2014)
-  3.
+  3.sprawdzanie czy jest w znajomych (08.05.2014)
   4.
 
 -SIEC
@@ -38,6 +38,6 @@ Tworzenie notatek na czyimś telefonie (Android)
 
 -INNE
   1.Pareowanie za pomocą NFC
-  2.
+  2.pobieranie imienia i numeru z ksiazki telefonicznej telefonu (08.05.2014)
   3.
   4.
