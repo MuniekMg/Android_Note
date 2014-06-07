@@ -7,12 +7,12 @@ public class ServerThread extends Thread
 	private Server server;
 	private Socket socket;
 	DataInputStream din;
-	//DataOutputStream dout;
-	BufferedWriter dout;
-	String myNumber = "48783685337";
+	DataOutputStream dout;
+	String myNumber = "";
 	String key;
 	String content;
 	String[] subStrings = new String[2];
+	boolean unknownClientNumber = true;
 	
 	public ServerThread(Server server, Socket socket) 
 	{
@@ -25,25 +25,24 @@ public class ServerThread extends Thread
 
 	public void run() 
 	{
-
+		
 		try 
 		{
 			din = new DataInputStream(socket.getInputStream());
 		} 
 		catch (IOException e) 
 		{
-			System.out.println("IO Problem with DataInputStream: " + e);
+			System.out.println("ERROR: IO Problem with DataInputStream: " + e);
 		}
 		try 
 		{
-			//dout = new DataOutputStream(socket.getOutputStream());
-			dout =new BufferedWriter(new OutputStreamWriter(socket.getOutputStream()));
+			dout =new DataOutputStream(socket.getOutputStream());
 			Thread senderThread = new Thread(new SenderThread(dout));
 			senderThread.start();
 		} 
 		catch (IOException e) 
 		{
-			System.out.println("IO Problem with DataOutputStream: " + e);
+			System.out.println("ERROR: IO Problem with DataOutputStream: " + e);
 		}
 		
 			while(true)
@@ -52,75 +51,85 @@ public class ServerThread extends Thread
 					{
 						if(din.available() > 0)
 						{
-							System.out.println("jestem! odbieram!");
 							String message="";
 							try 
 							{
-								System.out.println("odbieram!");
 								message = din.readUTF();
 								System.out.println(message);
 							} 
 							catch (IOException e) 
 							{
-								System.out.println("IO problem with readUTF: " + e);
+								System.out.println("ERROR: IO problem with readUTF: " + e);
 							}
 							
 							split(message); //splitting "numberOfRecipient/message"
 							
-							Server.PutToHashtable(key, content);
+							if(unknownClientNumber)
+							{
+								myNumber = key;
+								unknownClientNumber = false;
+							}
+							else
+							{
+								Server.PutToHashtable(key, content);
+							}
 						}
-					} catch (IOException e) {
-						// TODO Auto-generated catch block
-						e.printStackTrace();
-					}
-					finally
+					} 
+					catch (IOException e) 
 					{
+						System.out.println("ERROR: IO Problem DataInputStream.available: " + e);
+					}
+					
+					try 
+					{
+						sleep(10);
+					}
+					catch (InterruptedException e)
+					{
+						System.out.println("ERROR: SenderThread's sleep interrupted" + e);
 					}
 			} 
 	}
 
 	private class SenderThread extends Thread
 	{
-		BufferedWriter dout;
-		SenderThread(BufferedWriter d_out)
+		DataOutputStream dout;
+		SenderThread(DataOutputStream dOut)
 		{
-			dout = d_out;
+			dout = dOut;
 		}
-		
-		
 		
 		public void run()
 		{
-			/*for(int i=0; i<1; i++)
-			{
-				Server.GetHashtable().put("48783685337", "j:"+i);
-			}*/
 			while(true)
 			{
 				if(Server.GetHashtable().containsKey(myNumber))
 				{
-				String message = (String) Server.GetHashtable().get(myNumber);
-
-				/*try 
-				{
-					System.out.println("wysyłam!");
-					dout.writeUTF(message);
-					System.out.println("wyslałem!");
-				} 
-				catch (IOException ie) 
-				{
-					System.out.println("IO problem with writeUTF: " + ie);
-				}*/
-				try {
-					dout.write(message);
-					System.out.println("wysyłam!!!!!!!");
-				} catch (IOException e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
+					String message = (String) Server.GetHashtable().get(myNumber);
+	
+					try 
+					{
+						System.out.println("wysyłam!");
+						dout.writeUTF(message);
+						System.out.println("wyslałem!");
+					} 
+					catch (IOException ie) 
+					{
+						System.out.println("ERROR: IO problem with writeUTF: " + ie);
+					}
+					
+					Server.GetHashtable().remove(myNumber);
+					
+					try 
+					{
+						sleep(10);
+					}
+					catch (InterruptedException e)
+					{
+						System.out.println("ERROR: SenderThread's sleep interrupted" + e);
+					}
 				}
-				Server.GetHashtable().remove(myNumber);
 			}
-		}
 		}
 	}
 	
