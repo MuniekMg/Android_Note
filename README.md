@@ -11,10 +11,10 @@ Tworzenie notatek na czyimś telefonie (Android)
   5.komunikacja UI między wątkami (03.04.2014)
 
 -ZAPIS DO PLIKU
-  1.zapisywanie tresci notatnika do pliku
-  2.
-  3.
-  4.
+  1.zapisywanie tresci notatnika do pliku (12.06.2014)
+  2.wczytywanie notatki z pliku  (12.06.2014)
+  3.zapisywanie niewysłanych wiadomości w pliku (12.06.2014)
+  4.odczytywanie niewysłanych wiadomości z pliku i wysłanie gdy pojawi się odbiorca  (12.06.2014)
 
 -WĄTKI
   1.monitorowanie stanu.
